@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل فعاليات الجامعة الافتراضية السورية - الرئيسية</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand m-0 d-flex align-items-center gap-2" href="index.html">
+                    <i class="fa-solid fa-graduation-cap fs-3"></i> <span data-i18n="logo">دليل فعاليات SVU</span>
+                </a>
+                <button class="navbar-toggler border-0 px-2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                    <i class="fa-solid fa-bars-staggered text-primary fs-2"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center gap-lg-4 mt-3 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="events.html" data-i18n="nav_events">الفعاليات</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav_about">عن الدليل</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav_contact">اتصل بنا</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center justify-content-center gap-3 mt-3 mt-lg-0 pb-2 pb-lg-0">
+                        <button class="btn theme-toggle-btn rounded-circle d-flex align-items-center justify-content-center shadow-sm" onclick="toggleDarkMode()">
+                            <i class="fa-solid fa-moon" id="theme-icon"></i>
+                        </button>
+                        <button class="btn btn-primary shadow-sm rounded-pill fw-bold" onclick="toggleLanguage()" id="lang-btn">EN</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4 my-md-5">
+        <!-- Slider -->
+        <div id="featuredEventsCarousel" class="carousel slide carousel-fade mb-5 shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#featuredEventsCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#featuredEventsCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#featuredEventsCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/img/image1.jpg" class="d-block w-100" alt="Tech Seminar">
+                    <div class="carousel-caption">
+                        <h3 data-i18n="slide1_title">المسابقة البرمجية (ICPC)</h3>
+                        <p class="d-none d-sm-block" data-i18n="slide1_desc">تحدي الخوارزميات وحل المشكلات لطلاب المعلوماتية.</p>
+                        <a href="event.html?id=1" class="btn btn-primary mt-2 px-4 rounded-pill btn-sm d-md-inline-block" data-i18n="btn_details">التفاصيل</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/image2.jpg" class="d-block w-100" alt="AI Seminar">
+                    <div class="carousel-caption">
+                        <h3 data-i18n="slide2_title">ندوة الذكاء الاصطناعي</h3>
+                        <p class="d-none d-sm-block" data-i18n="slide2_desc">نقاش حول مستقبل تقنيات الذكاء الاصطناعي التوليدي.</p>
+                        <a href="event.html?id=2" class="btn btn-primary mt-2 px-4 rounded-pill btn-sm d-md-inline-block" data-i18n="btn_details">التفاصيل</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/image3.jpg" class="d-block w-100" alt="Cybersecurity">
+                    <div class="carousel-caption">
+                        <h3 data-i18n="slide3_title">ورشة الأمن السيبراني</h3>
+                        <p class="d-none d-sm-block" data-i18n="slide3_desc">تعلم أساسيات الحماية واكتشاف ثغرات الويب.</p>
+                        <a href="event.html?id=3" class="btn btn-primary mt-2 px-4 rounded-pill btn-sm d-md-inline-block" data-i18n="btn_details">التفاصيل</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#featuredEventsCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#featuredEventsCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+
+        <!-- Categories -->
+        <div class="text-center mb-5">
+            <h4 class="mb-4 text-primary" data-i18n="quick_categories">تصنيفات سريعة</h4>
+            <div class="d-flex justify-content-center flex-wrap gap-2 gap-md-3" id="home-categories"></div>
+        </div>
+
+        <!-- Recent Events -->
+        <div class="mb-5">
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 mb-4 border-bottom pb-3">
+                <h2 class="mb-0 text-primary text-center text-sm-start" data-i18n="latest_events">أحدث الفعاليات</h2>
+                <a href="events.html" class="btn btn-outline-primary rounded-pill px-4"><span data-i18n="view_all">عرض الكل</span> <i class="fa-solid fa-arrow-left-long ms-1" id="view-all-icon"></i></a>
+            </div>
+            <div class="row g-4" id="recent-events-grid"></div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="student-ids-section">
+            <h3 class="mb-3" data-i18n="team_members">أعضاء الفريق (أرقام الطلاب)</h3>
+            <p class="fs-6 fs-md-5 mb-4 opacity-75" data-i18n="team_desc">تم إنجاز هذا المشروع ضمن وظيفة مقرر BWP401 من قبل:</p>
+            <div class="d-flex justify-content-center gap-2 gap-md-3 flex-wrap">
+                <div class="bg-body text-body fs-6 p-2 p-md-3 px-3 px-md-4 shadow-sm border student-badge"><i class="fa-solid fa-user-graduate text-primary me-2"></i> ID: 290645 - Besan Alshikha</div>
+                <div class="bg-body text-body fs-6 p-2 p-md-3 px-3 px-md-4 shadow-sm border student-badge"><i class="fa-solid fa-user-graduate text-primary me-2"></i> ID: 296994 - Kawther Ibraheem</div>
+                <div class="bg-body text-body fs-6 p-2 p-md-3 px-3 px-md-4 shadow-sm border student-badge"><i class="fa-solid fa-user-graduate text-primary me-2"></i> ID: 300449 - Judi Musmus</div>
+                <div class="bg-body text-body fs-6 p-2 p-md-3 px-3 px-md-4 shadow-sm border student-badge"><i class="fa-solid fa-user-graduate text-primary me-2"></i> ID: 290484 - Thanaa Alkaati</div>
+                <div class="bg-body text-body fs-6 p-2 p-md-3 px-3 px-md-4 shadow-sm border student-badge"><i class="fa-solid fa-user-graduate text-primary me-2"></i> ID: 306758 - Salam Shanwan</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-4" data-i18n="logo"><i class="fa-solid fa-graduation-cap me-2"></i> دليل فعاليات SVU</h4>
+                    <p class="text-white-50 lh-lg small" data-i18n="footer_desc">المنصة الرسمية لطلاب الجامعة الافتراضية السورية لمتابعة أحدث الأنشطة والفعاليات الأكاديمية والترفيهية.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 text-md-center">
+                    <h5 class="text-white mb-4" data-i18n="quick_links">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html"><i class="fa-solid fa-angle-left ms-1 small"></i> <span data-i18n="nav_home">الرئيسية</span></a></li>
+                        <li class="mb-2"><a href="events.html"><i class="fa-solid fa-angle-left ms-1 small"></i> <span data-i18n="nav_events">الفعاليات</span></a></li>
+                        <li class="mb-2"><a href="about.html"><i class="fa-solid fa-angle-left ms-1 small"></i> <span data-i18n="nav_about">عن الدليل</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 text-lg-end">
+                    <h5 class="text-white mb-4" data-i18n="contact_us">تواصل معنا</h5>
+                    <div class="fs-4 d-flex justify-content-center justify-content-lg-end gap-3">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-4 border-top border-secondary border-opacity-50 text-white-50 small">
+                <p class="mb-0">&copy; <span id="currentYear"></span> <span data-i18n="copyright">جميع الحقوق محفوظة لطلاب الجامعة الافتراضية السورية.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" onclick="scrollToTop()" title="العودة للأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mx-3 mx-sm-auto">
+            <div class="modal-content border-0 shadow-lg rounded-4 bg-body">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-primary" data-i18n="modal_title"><i class="fa-regular fa-calendar-check me-2"></i> تأكيد الحضور</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-4">
+                    <p class="fs-6 mb-0 text-center text-muted" data-i18n="modal_body">هل أنت متأكد من رغبتك في حجز مقعد وهمي لهذه الفعالية؟ سيتم إرسال تذكرة افتراضية لبريدك الإلكتروني الجامعي.</p>
+                </div>
+                <div class="modal-footer border-top-0 pt-0 justify-content-center gap-2">
+                    <button type="button" class="btn btn-secondary px-4 rounded-pill w-100 w-sm-auto mb-2 mb-sm-0" data-bs-dismiss="modal" data-i18n="btn_cancel">إلغاء</button>
+                    <button type="button" class="btn btn-primary px-4 shadow-sm rounded-pill w-100 w-sm-auto" onclick="confirmBooking()" data-i18n="btn_confirm">تأكيد الحجز</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastPlacement"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

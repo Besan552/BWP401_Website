@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفعاليات - دليل فعاليات SVU</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand m-0 d-flex align-items-center gap-2" href="index.html">
+                    <i class="fa-solid fa-graduation-cap fs-3"></i> <span data-i18n="logo">دليل فعاليات SVU</span>
+                </a>
+                <button class="navbar-toggler border-0 px-2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                    <i class="fa-solid fa-bars-staggered text-primary fs-2"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center gap-lg-4 mt-3 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="events.html" data-i18n="nav_events">الفعاليات</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav_about">عن الدليل</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav_contact">اتصل بنا</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center justify-content-center gap-3 mt-3 mt-lg-0 pb-2 pb-lg-0">
+                        <button class="btn theme-toggle-btn rounded-circle d-flex align-items-center justify-content-center shadow-sm" onclick="toggleDarkMode()">
+                            <i class="fa-solid fa-moon" id="theme-icon"></i>
+                        </button>
+                        <button class="btn btn-primary shadow-sm rounded-pill fw-bold" onclick="toggleLanguage()" id="lang-btn">EN</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4 my-md-5">
+        <h2 class="mb-4 text-center border-bottom pb-3 text-primary" data-i18n="all_events">كافة الفعاليات</h2>
+        
+        <div class="card mb-4 mb-md-5 border-0 shadow-sm bg-body-tertiary">
+            <div class="card-body rounded">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="input-group shadow-sm">
+                            <span class="input-group-text bg-body border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                            <input type="text" class="form-control border-start-0 ps-0 bg-body" id="searchBox" placeholder="ابحث عن فعالية..." oninput="filterEvents()">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-select shadow-sm bg-body" id="categoryFilter" onchange="filterEvents()">
+                            <option value="all" data-i18n="cat_all">كل التصنيفات</option>
+                            <option value="tech" data-i18n="cat_tech">برمجة وتكنولوجيا</option>
+                            <option value="seminar" data-i18n="cat_seminar">ندوات وورش</option>
+                            <option value="culture" data-i18n="cat_culture">ثقافة ومجتمع</option>
+                            <option value="sport" data-i18n="cat_sport">رياضة وترفيه</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="date" class="form-control shadow-sm bg-body" id="dateFilter" onchange="filterEvents()">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4" id="all-events-grid"></div>
+        <div id="no-events-alert" class="alert alert-warning text-center mt-4 d-none rounded-4 shadow-sm py-4" data-i18n="no_events">
+            <i class="fa-solid fa-face-frown fs-1 d-block mb-2"></i> لا توجد فعاليات تطابق بحثك.
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-4" data-i18n="logo"><i class="fa-solid fa-graduation-cap me-2"></i> دليل فعاليات SVU</h4>
+                    <p class="text-white-50 lh-lg small" data-i18n="footer_desc">المنصة الرسمية لطلاب الجامعة الافتراضية السورية لمتابعة أحدث الأنشطة والفعاليات الأكاديمية والترفيهية.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 text-md-center">
+                    <h5 class="text-white mb-4" data-i18n="quick_links">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html"><i class="fa-solid fa-angle-left ms-1 small"></i> <span data-i18n="nav_home">الرئيسية</span></a></li>
+                        <li class="mb-2"><a href="events.html"><i class="fa-solid fa-angle-left ms-1 small"></i> <span data-i18n="nav_events">الفعاليات</span></a></li>
+                        <li class="mb-2"><a href="about.html"><i class="fa-solid fa-angle-left ms-1 small"></i> <span data-i18n="nav_about">عن الدليل</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 text-lg-end">
+                    <h5 class="text-white mb-4" data-i18n="contact_us">تواصل معنا</h5>
+                    <div class="fs-4 d-flex justify-content-center justify-content-lg-end gap-3">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-4 border-top border-secondary border-opacity-50 text-white-50 small">
+                <p class="mb-0">&copy; <span id="currentYear"></span> <span data-i18n="copyright">جميع الحقوق محفوظة لطلاب الجامعة الافتراضية السورية.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" onclick="scrollToTop()" title="العودة للأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastPlacement"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
